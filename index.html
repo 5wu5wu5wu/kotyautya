@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Котя & Утя • Милые штучки для уютного настроения</title>
+  <meta name="description" content="Котя & Утя — милые товары ручной работы, которые дарят тепло и хорошее настроение"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --pink: #ffb3c6;
+      --pink-dark: #ff8ab9;
+      --cream: #fff9f5;
+      --gray: #4a4a4a;
+      --accent: #ff9eaa;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Nunito', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--gray);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Бургер-меню */
+    .burger {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+      z-index: 1000;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .burger.active {
+      background: var(--pink);
+      transform: rotate(90deg);
+    }
+
+    .burger span,
+    .burger span::before,
+    .burger span::after {
+      content: '';
+      position: absolute;
+      width: 26px;
+      height: 3px;
+      background: var(--gray);
+      border-radius: 3px;
+      transition: all 0.35s cubic-bezier(0.3,0,0.2,1);
+    }
+
+    .burger span {
+      background: transparent;
+    }
+
+    .burger span::before,
+    .burger span::after {
+      background: var(--gray);
+    }
+
+    .burger span::before {
+      transform: translateY(-9px);
+    }
+
+    .burger span::after {
+      transform: translateY(9px);
+    }
+
+    .burger.active span::before {
+      transform: rotate(45deg);
+    }
+
+    .burger.active span::after {
+      transform: rotate(-45deg);
+    }
+
+    .menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(10px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+      transform: translateY(-100%);
+      transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+      z-index: 999;
+    }
+
+    .menu.active {
+      transform: translateY(0);
+    }
+
+    .menu a {
+      font-family: 'Caveat', cursive;
+      font-size: 3.5rem;
+      color: var(--gray);
+      text-decoration: none;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .menu a:hover {
+      color: var(--pink-dark);
+      transform: scale(1.08);
+    }
+
+    .menu a::after {
+      content: '♡';
+      position: absolute;
+      font-size: 1.2rem;
+      right: -2.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0;
+      transition: all 0.4s;
+    }
+
+    .menu a:hover::after {
+      opacity: 0.7;
+      right: -3rem;
+    }
+
+    /* Секции */
+    section {
+      min-height: 100vh;
+      padding: 8rem 5% 6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: 'Caveat', cursive;
+      font-size: clamp(3.8rem, 12vw, 9rem);
+      color: var(--pink-dark);
+      margin-bottom: 0.8rem;
+      line-height: 0.9;
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      margin-bottom: 1.8rem;
+      color: var(--pink-dark);
+    }
+
+    p {
+      max-width: 720px;
+      font-size: 1.18rem;
+      margin-bottom: 2rem;
+    }
+
+    .highlight {
+      color: var(--pink-dark);
+      font-weight: 700;
+    }
+
+    .hearts {
+      font-size: 2.4rem;
+      margin: 1.5rem 0;
+      user-select: none;
+    }
+
+    /* Адаптив */
+    @media (max-width: 768px) {
+      section {
+        padding: 6rem 6% 5rem;
+      }
+      
+      h1 {
+        font-size: clamp(3.2rem, 14vw, 7rem);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Бургер -->
+  <div class="burger" aria-label="Открыть меню">
+    <span></span>
+  </div>
+
+  <!-- Меню -->
+  <nav class="menu">
+    <a href="#home">Главная</a>
+    <a href="#about">О нас</a>
+    <a href="#products">Товары</a>
+    <a href="#contacts">Связаться</a>
+  </nav>
+
+  <!-- Секции -->
+
+  <section id="home">
+    <h1>Котя <span style="font-size:0.75em">♡</span> Утя</h1>
+    <div class="hearts">ฅ^•ﻌ•^ฅ   ₍ᐢ⑅•ᴗ•⑅ᐢ₎</div>
+    <p>Милые штучки ручной работы,<br>которые обнимают твоё сердечко</p>
+  </section>
+
+  <section id="about">
+    <h2>О нас</h2>
+    <p>Мы — <span class="highlight">Котя</span> и <span class="highlight">Утя</span> — две очень пушистые и очень творческие личности.</p>
+    <p>Создаём маленькие радости: уютные значки, брелки, стикерпакеты, закладочки, блокнотики и многое другое ♡</p>
+    <p>Каждая вещь сделана с любовью и большим количеством кошачьих/утиных обнимашек</p>
+  </section>
+
+  <section id="products">
+    <h2>Что мы умеем</h2>
+    <p>• Акриловые значки и брелки<br>• Милые стикеры и стикерпакеты<br>• Закладки для книг<br>• Блокноты и ежедневнички<br>• Мини-открыточки<br>• Патчи и шевроны</p>
+    <p style="margin-top:2.5rem; font-size:1.4rem;">
+      ...и всё это в самых няшных дизайнах! ✦
+    </p>
+  </section>
+
+  <section id="contacts">
+    <h2>Давай дружить ♡</h2>
+    <p style="font-size: 1.4rem; margin: 2rem 0;">
+      Пиши нам в любое время!
+    </p>
+    <p>
+      Telegram: @KotyandUtya<br>
+      Instagram: @kotyautya<br>
+      Почта: hello@kotyautya.ru
+    </p>
+    <div class="hearts" style="font-size:4rem; margin-top:2rem;">♡( ◜◡◝ )♡</div>
+  </section>
+
+  <script>
+    const burger = document.querySelector('.burger');
+    const menu = document.querySelector('.menu');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+
+    // Закрытие меню по клику на ссылку
+    document.querySelectorAll('.menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        burger.classList.remove('active');
+        menu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+</html>
